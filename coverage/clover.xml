@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1770266221125" clover="3.2.0">
+  <project timestamp="1770266221125" name="All files">
+    <metrics statements="122" coveredstatements="70" conditionals="42" coveredconditionals="26" methods="19" coveredmethods="6" elements="183" coveredelements="102" complexity="0" loc="122" ncloc="122" packages="2" files="3" classes="3"/>
+    <package name="controller">
+      <metrics statements="99" coveredstatements="57" conditionals="34" coveredconditionals="26" methods="17" coveredmethods="6"/>
+      <file name="product.controller.js" path="D:\MIS\backendStockManagement\backend\controller\product.controller.js">
+        <metrics statements="99" coveredstatements="57" conditionals="34" coveredconditionals="26" methods="17" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="68" count="3" type="stmt"/>
+        <line num="70" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="87" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="109" count="2" type="stmt"/>
+        <line num="110" count="2" type="stmt"/>
+        <line num="112" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="118" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="123" count="2" type="stmt"/>
+        <line num="128" count="2" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="137" count="1" type="stmt"/>
+        <line num="138" count="2" type="stmt"/>
+        <line num="139" count="2" type="stmt"/>
+        <line num="142" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="147" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="148" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
+        <line num="153" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="158" count="1" type="stmt"/>
+        <line num="161" count="1" type="stmt"/>
+        <line num="164" count="1" type="stmt"/>
+        <line num="176" count="1" type="stmt"/>
+        <line num="187" count="0" type="stmt"/>
+        <line num="194" count="1" type="stmt"/>
+        <line num="195" count="2" type="stmt"/>
+        <line num="196" count="2" type="stmt"/>
+        <line num="198" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="199" count="1" type="stmt"/>
+        <line num="202" count="1" type="stmt"/>
+        <line num="204" count="1" type="stmt"/>
+        <line num="206" count="0" type="stmt"/>
+        <line num="213" count="1" type="stmt"/>
+        <line num="214" count="0" type="stmt"/>
+        <line num="215" count="0" type="stmt"/>
+        <line num="218" count="0" type="stmt"/>
+        <line num="220" count="0" type="stmt"/>
+        <line num="223" count="0" type="stmt"/>
+        <line num="231" count="1" type="stmt"/>
+        <line num="232" count="0" type="stmt"/>
+        <line num="233" count="0" type="stmt"/>
+        <line num="235" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="236" count="0" type="stmt"/>
+        <line num="239" count="0" type="stmt"/>
+        <line num="273" count="0" type="stmt"/>
+        <line num="275" count="0" type="stmt"/>
+        <line num="282" count="1" type="stmt"/>
+        <line num="283" count="0" type="stmt"/>
+        <line num="284" count="0" type="stmt"/>
+        <line num="286" count="0" type="stmt"/>
+        <line num="288" count="0" type="stmt"/>
+        <line num="295" count="1" type="stmt"/>
+        <line num="296" count="0" type="stmt"/>
+        <line num="297" count="0" type="stmt"/>
+        <line num="299" count="0" type="stmt"/>
+        <line num="301" count="0" type="stmt"/>
+        <line num="308" count="1" type="stmt"/>
+        <line num="309" count="0" type="stmt"/>
+        <line num="310" count="0" type="stmt"/>
+        <line num="312" count="0" type="stmt"/>
+        <line num="315" count="0" type="stmt"/>
+        <line num="319" count="0" type="stmt"/>
+        <line num="322" count="0" type="stmt"/>
+        <line num="323" count="0" type="stmt"/>
+        <line num="326" count="0" type="stmt"/>
+        <line num="328" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="models">
+      <metrics statements="23" coveredstatements="13" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="Product.js" path="D:\MIS\backendStockManagement\backend\models\Product.js">
+        <metrics statements="17" coveredstatements="7" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+      </file>
+      <file name="StockTransaction.js" path="D:\MIS\backendStockManagement\backend\models\StockTransaction.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
