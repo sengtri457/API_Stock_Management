@@ -61,7 +61,10 @@ exports.createProduct = async (req, res) => {
             unit_price,
             quantity_in_stock,
             reorder_level,
-            description
+            description,
+            photo,
+            gallery_photos,
+            sizes
         } = req.body;
 
         // Check if product code already exists
@@ -80,7 +83,10 @@ exports.createProduct = async (req, res) => {
             unit_price,
             quantity_in_stock: quantity_in_stock || 0,
             reorder_level: reorder_level || 10,
-            description
+            description,
+            photo,
+            gallery_photos: gallery_photos || [],
+            sizes: sizes || []
         });
 
         // Create initial stock transaction if quantity > 0
