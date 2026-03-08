@@ -49,6 +49,13 @@ const saleSchema = new mongoose.Schema({
         ],
         default: "PENDING"
     },
+    payment_method: {
+        type: String,
+        enum: [
+            "CASH", "KHQR", "BANK_TRANSFER"
+        ],
+        default: "CASH"
+    },
     notes: {
         type: String,
         trim: true

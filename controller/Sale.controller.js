@@ -42,6 +42,7 @@ exports.createSale = async (req, res) => {
             customer_id,
             items,
             payment_status,
+            payment_method,
             notes,
             performed_by,
             shipping_address,
@@ -81,13 +82,16 @@ exports.createSale = async (req, res) => {
                         customer.email = shipping_address.email;
                     
 
+
                     if (! customer.phone && shipping_address.phone) 
                         customer.phone = shipping_address.phone;
                     
 
+
                     if (customer.isModified()) 
                         await customer.save();
                     
+
 
                 }
 
@@ -130,7 +134,7 @@ exports.createSale = async (req, res) => {
 
     // Create sale
     const sale = await Sale.create({
-      customer_id: finalizedCustomerId, customer_name: customerName, items: saleItems, total_amount: totalAmount, payment_status: payment_status || "PENDING", notes, shipping_address, shipping_method: shipping_method || "standard"
+      customer_id: finalizedCustomerId, customer_name: customerName, items: saleItems, total_amount: totalAmount, payment_status: payment_status || "PENDING", payment_method: payment_method || "CASH", notes, shipping_address, shipping_method: shipping_method || "standard"
     });
 
     // Update stock for each item and create stock transactions
