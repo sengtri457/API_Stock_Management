@@ -24,6 +24,10 @@ const productSchema = new mongoose.Schema({
         },
         category_name: String
     },
+    sub_category: {
+        type: String,
+        trim: true
+    },
     supplier: {
         supplier_id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -67,7 +71,45 @@ const productSchema = new mongoose.Schema({
             type: String,
             trim: true
         }
-    ]
+    ],
+
+    // Cosmetic Specific Fields
+    skin_type: [
+        {
+            type: String,
+            trim: true
+        }
+    ], // Oily, Dry, Sensitive, etc.
+    ingredients: {
+        type: String,
+        trim: true
+    },
+    how_to_use: {
+        type: String,
+        trim: true
+    },
+    benefits: [
+        {
+            type: String,
+            trim: true
+        }
+    ],
+    volume: {
+        type: String,
+        trim: true
+    }, // e.g., "50ml", "1.7 oz"
+    is_vegan: {
+        type: Boolean,
+        default: false
+    },
+    is_cruelty_free: {
+        type: Boolean,
+        default: false
+    },
+    is_best_seller: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true
 },);

@@ -64,7 +64,15 @@ exports.createProduct = async (req, res) => {
             description,
             photo,
             gallery_photos,
-            sizes
+            sizes,
+            skin_type,
+            ingredients,
+            how_to_use,
+            benefits,
+            volume,
+            is_vegan,
+            is_cruelty_free,
+            is_best_seller
         } = req.body;
 
         // Check if product code already exists
@@ -86,7 +94,15 @@ exports.createProduct = async (req, res) => {
             description,
             photo,
             gallery_photos: gallery_photos || [],
-            sizes: sizes || []
+            sizes: sizes || [],
+            skin_type: skin_type || [],
+            ingredients,
+            how_to_use,
+            benefits: benefits || [],
+            volume,
+            is_vegan: is_vegan || false,
+            is_cruelty_free: is_cruelty_free || false,
+            is_best_seller: is_best_seller || false
         });
 
         // Create initial stock transaction if quantity > 0

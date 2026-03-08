@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: [
-            'admin', 'client'
+            'admin', 'staff', 'client'
         ],
         default: 'client'
     },
@@ -30,6 +30,7 @@ userSchema.pre('save', async function () {
     if (!this.isModified('password')) 
         return;
     
+
 
     try {
         const salt = await bcrypt.genSalt(10);

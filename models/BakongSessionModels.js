@@ -73,6 +73,22 @@ const bakongSessionSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    shipping_address: {
+        name: String,
+        email: String,
+        phone: String,
+        address: String,
+        city: String,
+        state: String,
+        zip: String
+    },
+    shipping_method: {
+        type: String,
+        enum: [
+            'standard', 'express'
+        ],
+        default: 'standard'
+    },
     status: {
         type: String,
         enum: [

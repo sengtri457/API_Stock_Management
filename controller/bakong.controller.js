@@ -3,6 +3,7 @@ const BakongSession = require('../models/BakongSessionModels');
 const Sale = require('../models/Sale');
 const Product = require('../models/Product');
 const StockTransaction = require('../models/StockTransaction');
+const Customer = require('../models/Customer');
 const {generateQR, verifyPayment} = require('../utils/bakong');
 
 // ─────────────────────────────────────────────────────────────
@@ -15,7 +16,9 @@ const generateQRCode = async (req, res) => {
             userId,
             items,
             currency = 'usd',
-            notes
+            notes,
+            shipping_address,
+            shipping_method = 'standard'
         } = req.body;
 
         if (!userId || !items || items.length === 0) {
@@ -64,7 +67,7 @@ const generateQRCode = async (req, res) => {
 
         // ── Persist session ──────────────────────────────────────
         const session = await BakongSession.create({
-            sessionId, userId, items: sessionItems, total_amount, currency, qrString: qrResult.qrString, md5: qrResult.md5, notes: notes || '', status: 'pending', });
+            sessionId, userId, items: sessionItems, total_amount, currency, qrString: qrResult.qrString, md5: qrResult.md5, notes: notes || '', status: 'pending', shipping_address, shipping_method, });
 
         return res.status(200).json({
             sessionId: session.sessionId, qrString: session.qrString, md5: session.md5, total_amount: session.total_amount, currency: session.currency, expiresAt: session.expiresAt, });
@@ -152,9 +155,53 @@ const checkPaymentStatus = async (req, res) => {
                         } catch (err) {}
                     }
 
+                    // ── Sync with Customer Model ────────────────────────────
+                    let customerId = null;
+                    const shipping = session.shipping_address || {};
+                    const targetName = shipping.name || buyerName;
+
+                    try { // Find customer by name or email (if we had it, but searching by name is better than nothing)
+                        let customer = await Customer.findOne({customer_name: targetName});
+
+                        if (! customer && targetName) { // Automatically create profile if first time buyer
+                            customer = await Customer.create({
+                                customer_name: targetName,
+                                email: shipping.email,
+                                phone: shipping.phone,
+                                address: shipping.address ? `${
+                                    shipping.address
+                                }, ${
+                                    shipping.city
+                                }, ${
+                                    shipping.state
+                                }` : 'Website Order',
+                                notes: `Auto-created from Web Order #${
+                                    session.sessionId.slice(-6).toUpperCase()
+                                }`
+                            });
+                        } else if (customer) { // Update missing info if customer exists
+                            if (! customer.email && shipping.email) 
+                                customer.email = shipping.email;
+                            
+                            if (! customer.phone && shipping.phone) 
+                                customer.phone = shipping.phone;
+                            
+                            if (customer.isModified()) 
+                                await customer.save();
+                            
+                        }
+
+                        if (customer) {
+                            customerId = customer._id;
+                            buyerName = customer.customer_name;
+                        }
+                    } catch (err) {
+                        console.error('[Bakong Controller] Customer Sync Error:', err);
+                    }
+
                     // Create the Sale record
                     const newSale = await Sale.create({
-                        customer_id: null,
+                        customer_id: customerId,
                         customer_name: buyerName,
                         items: saleItems,
                         total_amount: session.total_amount,
@@ -163,7 +210,9 @@ const checkPaymentStatus = async (req, res) => {
                             session.sessionId
                         }${
                             session.notes ? ' | ' + session.notes : ''
-                        }`
+                        }`,
+                        shipping_address: session.shipping_address,
+                        shipping_method: session.shipping_method
                     });
 
                     // Deduct stock & create StockTransaction for each item

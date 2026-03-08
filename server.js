@@ -36,6 +36,7 @@ const customerRoutes = require("./routes/customer.route");
 const salesRoutes = require("./routes/sale.routes");
 const bakongRoutes = require("./routes/bakong.routes");
 const authRoutes = require("./routes/auth.routes");
+const purchaseRoutes = require("./routes/purchase.routes");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/sales", salesRoutes);
@@ -44,6 +45,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/suppliers", supplierRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/bakong", bakongRoutes);
+app.use("/api/purchases", purchaseRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3000;
